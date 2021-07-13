@@ -12,6 +12,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Form -->
@@ -65,15 +69,37 @@
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: 'AIzaSyDj9sFN5tybXbyxSBUmmkCCpeno8AnfRcE',
-        authDomain: 'test-1-fbb3e.firebaseapp.com',
-        projectId: 'test-1-fbb3e',
-        storageBucket: 'test-1-fbb3e.appspot.com',
-        messagingSenderId: '432790905381',
-        appId: '1:432790905381:web:675d88fb581f6a279c15cc'
+        apiKey: 'AIzaSyDdRtnIqBVVpmO8F0wjhv1MxTDcp64KYKE',
+        authDomain: 'test-2-dc9b9.firebaseapp.com',
+        databaseURL: 'https://test-2-dc9b9-default-rtdb.firebaseio.com',
+        projectId: 'test-2-dc9b9',
+        storageBucket: 'test-2-dc9b9.appspot.com',
+        messagingSenderId: '810692975751',
+        appId: '1:810692975751:web:6b335695b55863a8916c22'
       }
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig)
+    </script>
+    <script>
+      $('form').on('submit', function (event) {
+        event.preventDefault()
+        let data = {
+          name: $(this).find('#name').val(),
+          email: $(this).find('#email').val(),
+          message: $(this).find('#message').val()
+        }
+        firebase
+          .database()
+          .ref('contactData/' + data.name)
+          .set(data, function (error) {
+            if (error) {
+              console.log({ error })
+            } else {
+              console.log('create succeeded')
+              location.reload()
+            }
+          })
+      })
     </script>
   </body>
 </html>
