@@ -100,6 +100,31 @@
             }
           })
       })
+
+      $(document).ready(function () {
+        $.get(
+          'https://test-2-dc9b9-default-rtdb.firebaseio.com/.json',
+          null,
+          function (res) {
+            Object.keys(res.contactData).forEach((key, index) => {
+              res.contactData[key] &&
+                $('#message-history').append(
+                  `<hr>
+                    <ul class="list-group text-decoration-none">
+                        <li class="list-group-item fs-4 border-0">
+                            <a class=" text-decoration-none" href="mailto:${res.contactData[key].email}">${res.contactData[key].name}</a>
+                            <button class="material-icons-outlined border-0 bg-transparent" onclick="deleteMessage(this)" data-name="${res.contactData[key].name}">delete_forever
+                            </button>
+                        </li>
+                        <li class="list-group-item border border-secondary rounded">${res.contactData[key].message}
+                        </li>
+                    </ul>
+                  `
+                )
+            })
+          }
+        )
+      })
     </script>
   </body>
 </html>
