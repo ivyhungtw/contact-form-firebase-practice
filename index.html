@@ -125,6 +125,19 @@
           }
         )
       })
+      function deleteMessage(element) {
+        firebase
+          .database()
+          .ref('contactData/' + element.dataset.name)
+          .remove()
+          .then(function () {
+            console.log('Remove succeeded.')
+            location.reload()
+          })
+          .catch(function (error) {
+            console.log('Remove failed: ' + error.message)
+          })
+      }
     </script>
   </body>
 </html>
