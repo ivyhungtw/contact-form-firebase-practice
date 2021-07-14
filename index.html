@@ -18,13 +18,16 @@
     />
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Contact Me</span>
+      </div>
+    </nav>
     <!-- Form -->
-    <div class="d-flex m-4">
-      <form
-        class="flex-fill d-flex flex-column align-items-center"
-        style="height: 200px"
-      >
-        <div class="form-group col-md-6 p-2">
+    <div class="row m-4">
+      <form class="col-md-6 mb-5 px-3">
+        <div class="form-group p-2">
           <label for="name">Name</label>
           <input
             type="text"
@@ -33,7 +36,7 @@
             placeholder="Enter Name"
           />
         </div>
-        <div class="form-group col-md-6 p-2">
+        <div class="form-group p-2">
           <label for="email">Email</label>
           <input
             type="email"
@@ -42,7 +45,7 @@
             placeholder="Enter Email"
           />
         </div>
-        <div class="form-group col-md-6 p-2">
+        <div class="form-group p-2">
           <label for="message">Massage</label>
           <textarea
             class="form-control form-control-lg"
@@ -51,13 +54,17 @@
             rows="4"
           ></textarea>
         </div>
-        <button type="submit" class="col-md-3 btn btn-primary">Submit</button>
+        <div class="mt-3 d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
       </form>
-      <div
-        id="message-history"
-        class="col-md-4 m-2 p-3 border border-secondary rounded fs-5"
-      >
-        Message History
+      <div class="col-md-6">
+        <div
+          id="message-history"
+          class="p-3 border border-secondary rounded fs-5"
+        >
+          Message History
+        </div>
       </div>
     </div>
 
